@@ -1,0 +1,17 @@
+/Album.class
+/AlbumDeletionPrompt.class
+/AlbumList.class
+/AlbumManager.class
+/DeleteAlbumController.class
+/ImageInCell.class
+/ListFileManager.class
+/MainGUInterface.class
+/MainInterfaceController$1.class
+/MainInterfaceController.class
+/MainMenu.class
+/NewAlbumNameController.class
+/NewAlbumNamePrompt.class
+/Photo.class
+/PhotoAlbumProgram.class
+/PhotoList.class
+/PhotoManager.class

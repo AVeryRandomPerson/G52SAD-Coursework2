@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="310.0" type="Pane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="21.0" layoutY="30.0" text="You Are About to Delete This album :">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="targetNameLabel" layoutX="21.0" layoutY="52.0" text="Selected Album" textFill="#a80000">
+         <font>
+            <Font name="Verdana Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="confirmButton" layoutX="129.0" layoutY="93.0" mnemonicParsing="false" onAction="#deleteAlbum" text="Confirm" />
+   </children>
+</fx:root>

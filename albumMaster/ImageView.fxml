@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addAlbumPrompt" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#deleteAlbumPrompt" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#renameAlbumPrompt" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#showPictureList" text="Button" />
+               </children>
+            </HBox>
+            <Label text="Your Albums" />
+            <ListView fx:id="interfaceAlbumList" onMouseClicked="#acquireAlbum" prefHeight="720.0" />
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <AnchorPane prefHeight="530.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="waterMarkText" alignment="CENTER" contentDisplay="CENTER" prefHeight="500.0" prefWidth="650.0" text="Album Master" textAlignment="CENTER" textFill="#757575">
+               <font>
+                  <Font name="Verdana Italic" size="32.0" />
+               </font>
+               <padding>
+                  <Insets left="100.0" top="100.0" />
+               </padding>
+            </Label>
+            <ImageView fx:id="imageDisplayer" fitHeight="583.0" fitWidth="633.0" layoutX="9.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefWidth="100.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addPhotoPrompt" />
+                  <Button mnemonicParsing="false" onAction="#removePhotoPrompt" />
+               </children>
+            </HBox>
+            <Label contentDisplay="RIGHT" text="Library Images" />
+            <ListView fx:id="interfacePhotoLibrary" editable="true" onMouseClicked="#acquireLibraryPhoto" prefHeight="695.0" prefWidth="68.0" />
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="selectedAlbumLabel" text="No Album Selected" />
+                  <Button fx:id="addToAlbum" mnemonicParsing="false" onAction="#addPhotoToAlbum" text="Button" />
+                  <Button fx:id="removeFromAlbum" mnemonicParsing="false" onAction="#removePhotoFromAlbum" text="Button" />
+               </children>
+            </VBox>
+            <ListView fx:id="albumPhotoList" orientation="HORIZONTAL" prefHeight="100.0" prefWidth="858.0" />
+         </children>
+      </HBox>
+   </bottom>
+</fx:root>

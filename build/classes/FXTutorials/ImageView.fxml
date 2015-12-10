@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="480.0" stylesheets="@softwareStyle.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXTutorials.MainInterfaceController">
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <Label id="waterMark" fx:id="welcomeMessage" alignment="CENTER" contentDisplay="TOP" graphicTextGap="6.0" text="Album Master" textAlignment="CENTER" textFill="#7c7a7a" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="36.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+               <padding>
+                  <Insets left="120.0" />
+               </padding>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox>
+               <children>
+                  <Button id="addAlbumButton" mnemonicParsing="false" onAction="#addAlbum" stylesheets="@softwareStyle.css" />
+                  <Button id="deleteAlbumButton" mnemonicParsing="false" />
+                  <Button id="albumPhotoListsButton" mnemonicParsing="false" />
+                  <Button id="slidePlayButton" mnemonicParsing="false" />
+               </children>
+            </HBox>
+            <TreeView prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
