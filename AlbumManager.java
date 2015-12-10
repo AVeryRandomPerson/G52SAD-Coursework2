@@ -1,8 +1,10 @@
 
 
+import java.io.File;
+import java.io.IOException;
+
 public class AlbumManager {
 	AlbumList allAlbums;
-		
 	AlbumManager(){
 		allAlbums = new AlbumList();
 	}
@@ -11,8 +13,18 @@ public class AlbumManager {
 	public void printAlbums(){
 		allAlbums.printAlbums();
 	}
-	public void addAlbum(String newAlbumName){
+	public void addAlbum(String newAlbumName) throws IOException{
+		
+		
+		File newAlbum = new File("Albums\\"+newAlbumName+".txt");
+		newAlbum.createNewFile();
+		
+		
+		
 		allAlbums.addAlbum(newAlbumName);
+		
+		
+		
 	}
 	public void removeLastAlbum(){
 		final int DEAD = -1;
