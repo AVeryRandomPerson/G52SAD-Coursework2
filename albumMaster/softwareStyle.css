@@ -1,28 +1,238 @@
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
+    -fx-text-fill: white;
+}
+.list-cell:even { 
+    -fx-background-color: white;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #0093ff;
+    -fx-text-fill: white;
+}
+#imageContainerBG{
+
+    -fx-background-color: linear-gradient(to right, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); 
+}
+
 #addAlbumButton {
-    -fx-background-color:
-        linear-gradient(#f0ff35, #a9ff00),
-        radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);
-    -fx-background-radius: 6, 5;
-    -fx-background-insets: 0, 1;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
-    -fx-text-fill: #395306;
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
 }
 #addAlbumButton:hover {
-    -fx-background-color:
-        linear-gradient(#a9ff00, #f0ff35),
-        radial-gradient(center 50% -40%, radius 200%, #80c800 45%, #b8ee36 50%);
-    -fx-background-radius: 6, 5;
-    -fx-background-insets: 0, 1;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
-    -fx-text-fill: #395306;
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#191d22 0%, #1f2429 20%, #38424b 100%),
+        linear-gradient(#191d22, #20262b),
+        radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9));
+    -fx-text-fill: white;
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+}
+#addAlbumButton Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
 }
 
-#deleteAlbumButton{
 
+#deleteAlbumButton {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
 }
-#albumPhotoListsButton{
-
+#deleteAlbumButton:hover {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#191d22 0%, #1f2429 20%, #38424b 100%),
+        linear-gradient(#191d22, #20262b),
+        radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9));
+    -fx-text-fill: white;
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
 }
-#slidePlayButton{
+#deleteAlbumButton Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}
 
+#renameAlbumButton {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+#renameAlbumButton:hover {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#191d22 0%, #1f2429 20%, #38424b 100%),
+        linear-gradient(#191d22, #20262b),
+        radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9));
+    -fx-text-fill: white;
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+}
+#renameAlbumButton Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}
+
+#addPhotoToLibraryButton {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+#addPhotoToLibraryButton:hover {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#191d22 0%, #1f2429 20%, #38424b 100%),
+        linear-gradient(#191d22, #20262b),
+        radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9));
+    -fx-text-fill: white;
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+}
+#addPhotoToLibraryButton Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}
+
+#removePhotoFromLibraryButton {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+#removePhotoFromLibraryButton:hover {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#191d22 0%, #1f2429 20%, #38424b 100%),
+        linear-gradient(#191d22, #20262b),
+        radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9));
+    -fx-text-fill: white;
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+}
+#removePhotoFromLibraryButton Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}
+#addToAlbum {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+#addToAlbum:hover {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#191d22 0%, #1f2429 20%, #38424b 100%),
+        linear-gradient(#191d22, #20262b),
+        radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9));
+    -fx-text-fill: white;
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+}
+#addToAlbum Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}
+#removeFromAlbum {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+#removeFromAlbum:hover {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#191d22 0%, #1f2429 20%, #38424b 100%),
+        linear-gradient(#191d22, #20262b),
+        radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9));
+    -fx-text-fill: white;
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+}
+#removeFromAlbum Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+}
+#refreshLibraryPhoto {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+#refreshLibraryPhoto:hover {
+    -fx-background-color: 
+        #090a0c,
+        linear-gradient(#191d22 0%, #1f2429 20%, #38424b 100%),
+        linear-gradient(#191d22, #20262b),
+        radial-gradient(center 50% 0%, radius 100%, rgba(255,255,255,0),rgba(114,131,148,0.9));
+    -fx-text-fill: white;
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+}
+#refreshLibraryPhoto Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
 }

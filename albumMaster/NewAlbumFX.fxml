@@ -5,6 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
+
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="200.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="14.0" layoutY="26.0" text="Insert New Album Name">
@@ -12,7 +13,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="newNameField" layoutX="12.0" layoutY="43.0" onAction="#renameAlbum" prefHeight="25.0" prefWidth="176.0" promptText="Album Name" />
-      <Button fx:id="confirmNewName" layoutX="84.0" layoutY="80.0" mnemonicParsing="false" onAction="#renameAlbum" text="OK" />
+      <TextField fx:id="newNameField" layoutX="12.0" layoutY="43.0" onAction="#createAlbum" prefHeight="25.0" prefWidth="176.0" promptText="Album Name" />
+      <Button fx:id="enterNewAlbumName" layoutX="84.0" layoutY="80.0" mnemonicParsing="false" onAction="#createAlbum" text="OK" />
    </children>
 </fx:root>

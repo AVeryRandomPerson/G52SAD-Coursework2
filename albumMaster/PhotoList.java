@@ -82,6 +82,7 @@ public class PhotoList {
 		while(currentPhoto != null){
 			if(currentPhoto.photoName.equals(targetName)){
 				if(currentPhoto == tailPhoto){
+					System.out.println("Deleting TAIL");
 					if(size < 1){
 						System.out.println("Album is empty!");
 						return -1;
@@ -93,17 +94,18 @@ public class PhotoList {
 						headPhoto.previousPhoto = null;
 						headPhoto.nextPhoto = null;
 						tailPhoto = headPhoto;
-						System.out.println("ALBUM DELETED : HEAD["+headPhoto.photoName+"] and TAIL ["+tailPhoto.photoName+"]");
+						System.out.println("PHOTO DELETED : HEAD["+headPhoto.photoName+"] and TAIL ["+tailPhoto.photoName+"]");
 					}
 					else{
 						Photo exiledAlbum = tailPhoto;
 						tailPhoto = tailPhoto.previousPhoto;
 						exiledAlbum.previousPhoto = null;
 						tailPhoto.nextPhoto = null;
-						System.out.println("ALBUM DELETED : HEAD["+headPhoto.photoName+"] and TAIL ["+tailPhoto.photoName+"]");
+						System.out.println("PHOTO DELETED : HEAD["+headPhoto.photoName+"] and TAIL ["+tailPhoto.photoName+"]");
 					}
 				}
 				else if(currentPhoto == headPhoto) {
+					System.out.println("Deleting HEAD");
 					if(size < 1){
 						System.out.println("Album is empty!");
 						return -1;
@@ -126,14 +128,16 @@ public class PhotoList {
 					break;
 				}
 				else{
+					System.out.println("Deleting Body");
 					Photo currentsPreviousAlbum = currentPhoto.previousPhoto;
 					Photo currentsNextAlbum = currentPhoto.nextPhoto;
 					
 					currentsPreviousAlbum.nextPhoto = currentsNextAlbum;
 					currentsNextAlbum.previousPhoto = currentsPreviousAlbum;
-					System.out.println("ALBUM DELETED : HEAD["+headPhoto.nextPhoto+"] and TAIL ["+tailPhoto.photoName+"]");
+					System.out.println("PHOTO DELETED : HEAD["+headPhoto.nextPhoto+"] and TAIL ["+tailPhoto.photoName+"]");
 				}	
 			}
+			System.out.println(currentPhoto.photoName + "Scanned  !");
 			currentPhoto = currentPhoto.nextPhoto;
 		}
 		size--;

@@ -14,8 +14,6 @@ import java.util.Scanner;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class ListFileManager {
 	
@@ -40,10 +38,7 @@ public class ListFileManager {
 		  bufferFile.createNewFile();
 		  return bufferFile;
 	  }
-	  
-	  
-	  public ObservableList<String> getAllAlbums(Boolean copyToList) throws IOException{	    
-		  	
+	  public ObservableList<String> getAllAlbums(Boolean copyToList) throws IOException{	 
 		  	ArrayList<String> albumList = new ArrayList<String>();
 		    try (Scanner scanner =  new Scanner(albumListPath, ENCODING.name())){
 		    	if(scanner.hasNextLine()) {
@@ -53,7 +48,7 @@ public class ListFileManager {
 				      {
 			    		  scanningValue = scanner.nextLine();
 			    		  albumList.add(scanningValue);
-			    		  if(copyToList) albumManager.addAlbum(scanningValue);
+			    		  if(copyToList) albumManager.addAlbum(scanningValue,false);
 				      }   
 		    		}
 		    	}   
@@ -78,9 +73,31 @@ public class ListFileManager {
 		  }
 			albumManager.printAlbums();
 	  }	
+	  public void saveAllAlbumPhotosToSystem() throws IOException{
+		  AlbumList allAlbums = albumManager.allAlbums;
+		  Album currentAlbum = allAlbums.headAlbum;
+		  while(currentAlbum != null){
+			  saveAlbumPhotosToSystem(currentAlbum);
+			  currentAlbum = currentAlbum.nextAlbum;
+		  }
+	  }
+	  public void saveAlbumPhotosToSystem(Album targetAlbum) throws IOException{
+		  String albumName = targetAlbum.albumName;
+		  PhotoManager photoManager = targetAlbum.photoManager;
+		  Path albumFilePath = Paths.get("Data\\Albums\\"+albumName+".txt");
+		  try (Scanner scanner =  new Scanner(albumFilePath, ENCODING.name())){
+	    	  scanningValue = scanner.nextLine();
+	    	  if(scanningValue.equals("[ALL Photos]")){
+	    		  System.out.println("Successfully Found File!");
+	    	  }
+			  while (scanner.hasNextLine()){
+				  	  scanningValue = scanner.nextLine();
+				  	  Photo addedImage = new Photo(scanningValue);
+			    	  photoManager.allPhotos.addPhoto(addedImage);      	  
+		      }        
+		  }
+	  }
 	  public void removeAlbumFromSystem(String target) throws IOException{
-		  
-
 		  File bufferFile = createBufferFile("TempFile_Buffer.txt");
 		  Path bufferFilePath = Paths.get("TempFile_Buffer.txt");
 		  AlbumList allAlbums = albumManager.allAlbums;
@@ -154,6 +171,39 @@ public class ListFileManager {
 	    	  }
 		  }	  
 	  }
+	  public void deletePhotoFromAlbum(String albumName, String photoName) throws IOException{
+		  Path albumFilePath = Paths.get("Data\\Albums\\"+albumName+".txt");
+		  File bufferFile = createBufferFile("TempFile_Buffer.txt");
+		  Path bufferFilePath = Paths.get("TempFile_Buffer.txt");
+		  
+		  
+	  	  try (BufferedWriter writer = Files.newBufferedWriter(bufferFilePath,ENCODING,StandardOpenOption.APPEND))
+    	  { 
+    		  {
+    			  writer.write("[ALL Photos]");
+    		  }
+    	  }
+		  
+		  try (Scanner scanner =  new Scanner(albumFilePath, ENCODING.name())){
+		  try (BufferedWriter writer = Files.newBufferedWriter(bufferFilePath,ENCODING,StandardOpenOption.APPEND)){
+		    	  while (scanner.hasNextLine()){	  
+			    	  { 
+			    		  { 
+			    			  scanningValue = scanner.nextLine();
+			    			  boolean ignore = (scanningValue.equals(photoName) || scanningValue.equals("[ALL Photos]")); 
+			    			  if(!ignore){
+			    			  writer.newLine();
+			    			  writer.write(scanningValue);
+			    			  }
+			    		  }
+			    	  }
+		    	  }
+    	  }
+		  }
+		  File albumFile = new File("Data\\Albums\\"+albumName+".txt");
+		  albumFile.delete();
+		  bufferFile.renameTo(albumFile); 
+	  }	  
 	  public ObservableList<String> getPhotosListOfAlbum(String albumName) throws IOException{
 		  Path albumFilePath = Paths.get("Data\\Albums\\"+albumName+".txt");
 		  ArrayList<String> albumPhotoList = new ArrayList<String>();
@@ -171,5 +221,47 @@ public class ListFileManager {
 		  }
 		  return FXCollections.observableArrayList(albumPhotoList);
 	  }
+	  public void renameAlbumToSystem(String targetAlbum, String newName) throws IOException{
+		  File albumDataFile = new File("Data\\Albums\\"+targetAlbum+".txt");
+		  File newAlbumDataFile = new File("Data\\Albums\\"+newName+".txt");
+		  File albumListFile = new File(ALBUM_LISTS);
 
+		  File bufferFile = createBufferFile("TempFile_Buffer.txt");
+		  Path bufferFilePath = Paths.get("TempFile_Buffer.txt");
+
+	  	  try (BufferedWriter writer = Files.newBufferedWriter(bufferFilePath,ENCODING,StandardOpenOption.APPEND))
+    	  { 
+    		  {
+    			  writer.write("[All Albums]");
+    		  }
+    	  }
+		  try (Scanner scanner =  new Scanner(albumListPath, ENCODING.name())){
+		  try (BufferedWriter writer = Files.newBufferedWriter(bufferFilePath,ENCODING,StandardOpenOption.APPEND)){
+		    	  while (scanner.hasNextLine()){	  
+			    	  { 
+			    		  { 
+			    			  scanningValue = scanner.nextLine(); 
+			    			  if(scanningValue.equals("[All Albums]")){
+			    				  //Ignore
+			    				  System.out.println("Found File to Rename!");
+			    			  }
+			    			  else if(scanningValue.equals(targetAlbum)){
+			    				  writer.newLine();
+			    				  writer.write(newName);
+			    			  }
+			    			  else{
+			    				  writer.newLine();
+			    				  writer.write(scanningValue);
+			    			  }
+			    		  }
+			    	  }
+		    	  }
+    	  }
+		  }
+		  albumListFile.delete();
+		  bufferFile.renameTo(albumListFile); 
+		  albumDataFile.renameTo(newAlbumDataFile);
+
+		  //albumManager.renameAlbum(targetAlbum, newName);
+	  }
 }

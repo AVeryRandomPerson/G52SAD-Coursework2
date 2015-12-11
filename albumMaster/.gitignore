@@ -15,3 +15,7 @@
 /PhotoAlbumProgram.class
 /PhotoList.class
 /PhotoManager.class
+/NewAlbumController.class
+/NewAlbumPrompt.class
+/RenameAlbumController.class
+/RenameAlbumPrompt.class

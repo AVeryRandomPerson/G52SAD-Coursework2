@@ -12,19 +12,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class NewAlbumNameController extends AnchorPane {
+public class NewAlbumController extends AnchorPane {
 	@FXML
 	private TextField newNameField;	
 	ListFileManager listFileController;
 	ListView<String> interfaceAlbumList;
 	AlbumManager albumManager;
 	
-	NewAlbumNameController(ListFileManager listFileController,ListView<String> interfaceAlbumList){
+	NewAlbumController(ListFileManager listFileController,ListView<String> interfaceAlbumList){
         this.listFileController = listFileController;
         this.interfaceAlbumList = interfaceAlbumList;
         albumManager = listFileController.albumManager;
         
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AlbumNewNameFX.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewAlbumFX.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -86,13 +86,13 @@ public class NewAlbumNameController extends AnchorPane {
 	    	ArrayList<String> patchedList = listFileController.albumManager.getAllAlbumNames();
 	    	ObservableList<String> newList = FXCollections.observableArrayList(patchedList);
 	    	interfaceAlbumList.setItems(newList);
-	    	
-	    	
 	    	System.out.println("[New Album Name Interface] [Button Album Name] Album Successfully Added.");
 	    	stage.close();
+	    }else{
+	    	newNameField.clear();
+		    System.out.println("[New Album Name Interface] [Button Album Name] Album Failed to be Added. Invalid FileName");	
 	    }
-	    newNameField.clear();
-	    System.out.println("[New Album Name Interface] [Button Album Name] Album Failed to be Added. Invalid FileName");
+	    
     	
 
 	    

@@ -25,7 +25,7 @@ public class AlbumManager {
 	public Album getSelectedAlbum(String albumName){
 		Album currentAlbum = allAlbums.headAlbum;
 		while(currentAlbum != null){
-			if(currentAlbum.albumName == albumName){
+			if(currentAlbum.albumName.equals(albumName)){
 				return currentAlbum;
 			}
 			currentAlbum = currentAlbum.nextAlbum;
@@ -35,16 +35,25 @@ public class AlbumManager {
 		return deadAlbum;
 	}
 	public void addAlbum(String newAlbumName) throws IOException{
-		  File newAlbum = new File("Data\\Albums\\"+newAlbumName+".txt");
-		  newAlbum.createNewFile();		
-		  Path albumPath = Paths.get("Data\\Albums\\"+newAlbumName+".txt");
-	  	  try (BufferedWriter writer = Files.newBufferedWriter(albumPath,ENCODING,StandardOpenOption.APPEND))
-	  	  { 
-	  		  {
-	  			  writer.write("[ALL Photos]");
-	  		  }
-	  	  }
-		allAlbums.addAlbum(newAlbumName);
+		File newAlbum = new File("Data\\Albums\\"+newAlbumName+".txt");
+		newAlbum.createNewFile();
+			  Path albumPath = Paths.get("Data\\Albums\\"+newAlbumName+".txt");
+		  	  try (BufferedWriter writer = Files.newBufferedWriter(albumPath,ENCODING,StandardOpenOption.APPEND))
+		  	  { 
+		  		  {
+		  			  System.out.println("Initialized Album File ! for : "+newAlbumName);
+		  			  writer.write("[ALL Photos]");
+		  		  }
+		  	  }	
+		allAlbums.addAlbum(newAlbumName); 
+	}
+	public void addAlbum(String newAlbumName, Boolean initializeOnly) throws IOException{
+		if(initializeOnly){
+			addAlbum(newAlbumName);
+		}
+		else{
+			allAlbums.addAlbum(newAlbumName); 
+		}
 	}
 	public ArrayList<String> getAllAlbumNames(){
 		Album currentAlbum = allAlbums.headAlbum;
@@ -79,5 +88,9 @@ public class AlbumManager {
 		if(albumStatus == DEAD){
 			allAlbums = new AlbumList(); // Replaces album list with new one, with unassigned variables.
 		}
+	}
+	public void renameAlbum(String targetName, String newName){
+		Album targetAlbum = getSelectedAlbum(targetName);
+		targetAlbum.albumName = newName;
 	}
 }
