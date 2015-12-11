@@ -1,0 +1,79 @@
+Licence  - GNU GPL
+Since this software has a very generalised functionality, it provides a strong potential for additions of many other features. 
+The GNU General Public License is simple and provides a strong platform for many to get involved into its improvement because it allows users to view and analyse the source, and the freedom of distribution and modification. 
+Additionally, the license preserves the freedom of any products developed from the original software source. 
+This will provide a greater out reach and opportunity for the software to continue growing and providing for the community.
+
+
+
+
+
+	: Updates in Code :
+
+*The Main Class that binds everything together is 'MainGUInterface.java'
+Due to the fact that users may want the same images on different albums, the album is processed as a list of pointers only instead of copying the image files.
+
+Most of the original .java and .fxml files have been renamed and refactored to provide more meaning to the context of the software during the development.
+
+
+
+[ Background Data Handling]
+1.	Album.java
+	Stores data for handling of album information.
+	
+2.	AlbumList.java
+	Stores data for handling a list of albums. Allows quick access for the program to get the list of user's albums.
+	
+3.	AlbumManager.java
+	Contains all the methods that govern album list organising. All classes will use the albumManager as it will point to the same list.
+	
+4.	Photo.java
+	Stores the information of images. This is stored within the album object as a list, controlled by PhotoManager.
+	
+5.	PhotoList.java
+	Stores a list of photos. This is contained in the album object to represent everything inside the album created by user.
+	
+6.	PhotoManager.java
+	Controls and binds all properties of the PhotoList's objects. Each album has its PhotoManager object and will use it to handle photo operations.
+
+
+	
+[ Interface ]
+7.	MainGUInterface.java 
+	Represents the main class that binds everything together and operates the software through the Stage controlled by MainInterfaceController.java
+
+8.	MainInterfaceController.java
+	Handles the top level operations of Interfaces. Primary class of FXML injections. 
+	
+9.	NewAlbumPrompt.java
+	Creates a notification to request a name for a new album from the user. Evoked from the main interface through 'Add Album' Button.
+	
+10. NewAlbumController.java
+	Handles all the operations required when creating a new album. Used by NewAlbumPrompt.java.
+	
+11.	AlbumDeletionPrompt.java
+	Requests a confirmation from the user before the deletion of an album. Evoked from the main interface through 'Delete Album'  Button.
+
+12.	AlbumDeletionController.java	
+	Handles all the operations required when deleting an album. Used by AlbumDeletionPrompt.java.
+	
+13.	RenameAlbumPrompt.java
+	Creates a notification to request a name for an album from the user. Evoked from the main interface through 'Rename Album' Button.
+	
+14.	RenameAlbumController.java
+	Handles all the operations required when deleting an album. Used by RenameAlbumPrompt.java.
+	
+
+
+[ Hard saving and  directory]
+15.	ListFileManager.java
+	A powerful class that handles all the read and write operations to files. This allows album data and all of its pointers to be permanently saved into a file where the program can read it again in the future.
+	
+
+	> All of its relevant file read/write is stored within the 'Data' folder.
+	
+	
+
+	
+	
+	
